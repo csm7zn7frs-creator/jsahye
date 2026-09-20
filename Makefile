@@ -1,5 +1,5 @@
 ARCHS = arm64 arm64e
-TARGET = iphone:clang:16.0:16.0
+TARGET = iphone:clang:15.0:15.0
 INSTALL_TARGET_PROCESSES = SpringBoard
 
 THEOS_PACKAGE_SCHEME = roothide
