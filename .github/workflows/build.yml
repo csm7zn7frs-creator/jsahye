@@ -7,21 +7,14 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Install brew dependencies (ldid, dpkg)
-        run: |
-          brew update
-          brew install ldid dpkg
+      - name: Build Tweak with Theos
+        uses: theos/setup-theos@v1
+        with:
+          package-scheme: roothide
 
-      - name: Install Theos
-        run: |
-          git clone --recursive https://github.com/theos/theos.git ~/theos
-          echo "THEOS=$HOME/theos" >> $GITHUB_ENV
-          echo "PATH=$HOME/theos/bin:$PATH" >> $GITHUB_ENV
-
-      - name: Build Tweak
+      - name: Compile
         run: make clean package
 
       - name: Upload deb
