@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>title</key>
+    <string>RelaxinDemo</string>
+    <key>items</key>
+    <array>
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>label</key>
+            <string>瘾根RootHide插件演示</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSTextFieldCell</string>
+            <key>label</key>
+            <string>输入内容</string>
+            <key>key</key>
+            <string>demoText</string>
+            <key>defaultValue</key>
+            <string>你好瘾根！</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>label</key>
+            <string>功能开关</string>
+            <key>key</key>
+            <string>demoSwitch</string>
+            <key>defaultValue</key>
+            <true/>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSButtonCell</string>
+            <key>label</key>
+            <string>点击打印日志</string>
+            <key>action</key>
+            <string>testButtonTap:</string>
+        </dict>
+    </array>
+</dict>
+</plist>
