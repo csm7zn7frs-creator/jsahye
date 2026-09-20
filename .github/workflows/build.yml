@@ -1,4 +1,4 @@
-name: Build Rootless Tweak
+name: Build RootHide Tweak
 on:
   push:
   workflow_dispatch:
@@ -22,7 +22,7 @@ jobs:
           echo "PATH=$HOME/theos/bin:$PATH" >> $GITHUB_ENV
 
       - name: Build Tweak
-        run: make clean package THEOS_PACKAGE_SCHEME=rootless
+        run: make clean package
 
       - name: Upload deb
         uses: actions/upload-artifact@v4
