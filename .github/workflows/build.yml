@@ -1,4 +1,4 @@
-name: Build Tweak
+name: Build RootHide Tweak
 on:
   workflow_dispatch:
   push:
