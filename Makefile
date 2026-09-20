@@ -1,8 +1,7 @@
 ARCHS = arm64 arm64e
-TARGET = iphone:clang:15.0:15.0
+TARGET = iphone:clang:16.0:16.0
 INSTALL_TARGET_PROCESSES = SpringBoard
 
-# 关键：RootHide专用打包标识，输出的deb原生适配RootHide，不需要Patcher
 THEOS_PACKAGE_SCHEME = roothide
 
 include $(THEOS)/makefiles/common.mk
