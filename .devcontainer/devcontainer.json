@@ -1,0 +1,4 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/base:macos",
+  "postCreateCommand": "git clone --recursive https://mirror.ghproxy.com/https://github.com/theos/theos.git ~/theos && echo 'export THEOS=$HOME/theos' >> ~/.zshrc && echo 'export PATH=$THEOS/bin:$PATH' >> ~/.zshrc"
+}
