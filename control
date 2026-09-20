@@ -2,7 +2,7 @@ Package: com.test.relaxindemo
 Name: RelaxinDemo
 Version: 0.0.1
 Architecture: iphoneos-arm64
-Description: RootHide瘾根测试插件
+Description: RootHide瘾根测试插件，带设置UI面板
 Maintainer: test
 Author: test
 Section: Tweaks
