@@ -1,20 +1,13 @@
-#import <UIKit/UIKit.h>
+#import <substrate.h>
+#import <Foundation/Foundation.h>
+
+%ctor {
+    NSLog(@"🔥 RelaxinDemo 瘾根插件已加载！");
+}
 
 %hook SpringBoard
-- (void)applicationDidFinishLaunching:(id)application {
+- (void)applicationDidFinishLaunching:(id)app {
     %orig;
-    NSLog(@"✅ RelaxinDemo 已经成功注入SpringBoard！");
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"成功" message:@"Relaxin 插件加载成功" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alert addAction:ok];
-        UIWindow *win = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        win.rootViewController = [UIViewController new];
-        win.windowLevel = UIWindowLevelAlert + 10;
-        [win makeKeyAndVisible];
-        [win.rootViewController presentViewController:alert animated:YES completion:nil];
-    });
+    NSLog(@"✅ Hook SpringBoard 完成，请到设置打开RelaxinDemo面板");
 }
 %end
-
-
