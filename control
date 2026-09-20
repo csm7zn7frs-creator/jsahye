@@ -1,0 +1,9 @@
+Package: com.test.relaxindemo
+Name: RelaxinDemo
+Version: 0.0.1
+Architecture: iphoneos-arm64
+Description: Test alert tweak for Relaxin rootless
+Maintainer: test
+Author: test
+Section: Tweaks
+Depends: mobilesubstrate
