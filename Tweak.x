@@ -1,17 +1,14 @@
-#import <substrate.h>
-#import <UIKit/UIKit.h>
-
 %hook SpringBoard
-- (void)applicationDidFinishLaunching {
+- (void)applicationDidFinishLaunching:(id)application {
     %orig;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"✅ Codespaces编译成功"
-                                                                         message:@"Relaxin iOS17.1.1 rootless 测试"
-                                                                  preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alert addAction:ok];
-        UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
-        [rootVC presentViewController:alert animated:YES completion:nil];
-    });
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"成功" message:@"插件加载正常！" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:ok];
+    UIWindow *win = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    win.rootViewController = [UIViewController new];
+    win.windowLevel = 10000;
+    [win makeKeyAndVisible];
+    [win.rootViewController presentViewController:alert animated:YES completion:nil];
 }
 %end
+
