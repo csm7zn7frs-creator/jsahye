@@ -1,26 +1,20 @@
-name: Build RootHide Tweak
+name: Build Tweak
 on:
-  push:
   workflow_dispatch:
-
+  push:
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
+    container: ghcr.io/theos/theos:latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Build Tweak with Theos
-        uses: theos/setup-theos@v1
-        with:
-          package-scheme: roothide
-
-      - name: Compile
+      - name: Build package
         run: make clean package
-
-      - name: Upload deb
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: tweak-deb
           path: packages/*.deb
+
 
 
