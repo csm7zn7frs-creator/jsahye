@@ -12,7 +12,7 @@ jobs:
 
       - name: Install Theos
         run: |
-          git clone --recursive https://mirror.ghproxy.com/https://github.com/theos/theos.git ~/theos
+          git clone --recursive https://github.com/theos/theos.git ~/theos
           echo "THEOS=$HOME/theos" >> $GITHUB_ENV
           echo "PATH=$HOME/theos/bin:$PATH" >> $GITHUB_ENV
 
@@ -24,3 +24,4 @@ jobs:
         with:
           name: tweak-deb
           path: packages/*.deb
+
