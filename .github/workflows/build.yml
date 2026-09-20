@@ -2,6 +2,7 @@ name: Build RootHide Tweak
 on:
   workflow_dispatch:
   push:
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -9,10 +10,13 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: Setup Theos
-        uses: theos/setup-theos@v1
-        with:
-          package-scheme: roothide
+      - name: Install dependencies & Theos
+        run: |
+          apt update
+          apt install -y git wget curl dpkg ldid build-essential
+          bash -c "$(curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos)"
+          echo "THEOS=$HOME/theos" >> $GITHUB_ENV
+          echo "PATH=$HOME/theos/bin:$PATH" >> $GITHUB_ENV
 
       - name: Build package
         run: make clean package
